@@ -17,13 +17,13 @@ def traduzir(data):
         tradução=translator.translate(text,src='en',dest='pt')
         personagem['name']= tradução.text
         print(personagem['name'])
-        try:
+        if('affiliation' in personagem):
             text = personagem['affiliation']
             tradução=translator.translate(text,src='en',dest='pt')
             personagem['affiliation']= tradução.text
             print(personagem['affiliation'])
-        except:
-            continue
+        else:
+            print("sem chave")
     return data
 Personagens=getPersonagens()
 Tradução=traduzir(Personagens)
